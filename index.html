@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Add to cart</title>
+
+    <style>
+
+        /* *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container{
+            margin: auto;
+           width: 100%;
+            border: 1px solid green; 
+        }
+        .d-flex{
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+             border: 1px solid green; 
+        }
+
+
+
+        .boxes{
+            width: 100%;
+            padding: 10px;
+            border: 1px solid orange;
+       
+        } 
+
+
+        .box{
+            border-radius: 10px;
+            height: 100%;
+               box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.582);
+               padding: 10px;
+               width: 250px;
+                border: 1px solid red;
+                justify-content: center; 
+        }
+
+        .box > img{
+            width: 100%;
+            height: 300px;
+            border: 1px solid gainsboro;
+            aspect-ratio: 1/1;
+
+            
+        }
+        .buttons{
+            margin: 10px;
+            
+        } */
+
+    </style>
+
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid d-flex text-center">
+          <a class="navbar-brand me-5  fs-3" href="#">Shopping kart</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+              </li>
+              <!-- <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Dropdown
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+              </li> -->
+            </ul>
+            <form class="d-flex ms-5 text-end">
+              <input class="form-control ms-5  " type="search" id="search" placeholder="Search" aria-label="Search">
+
+              <a href="cart.html" class="h2 mx-3 text-decoration-none">
+                 🛒
+                 <!-- <p id="cartlength" class="text-normal"></p>  -->
+                </a>
+              
+            </form>
+          </div>
+        </div>
+      </nav>
+
+
+
+      <!-- <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand">Navbar</a>
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
+     -->
+
+
+    <!-- <div class="main" style="margin:40px auto; width:fit-content">
+        <input type="text" id="search" style="padding:10px 20px; font-size:21px; border:1px solid gray" placeholder="search items">
+      </div> -->
+
+
+
+    <div class="buttons text-center my-5">
+        <button id="viewall" class="btn btn-outline-secondary ">All</button>
+        <button id="men" class="btn btn-outline-secondary ">Men</button>
+        <button id="women" class="btn btn-outline-secondary ">Women</button>
+        <button id="jewelery" class="btn btn-outline-secondary ">jewelery</button>
+        <button id="low_sort" class="btn btn-outline-secondary ">price⬇️</button>
+        <button id="high_sort" class="btn btn-outline-secondary ">price⬆️</button>
+    </div>
+
+
+    <div class="container-fluid">
+        <div class="container">
+            <div id="boxes" class="row row-cols-lg-4   g-4">
+                
+            </div>
+          
+        </div>
+    </div>
+
+      <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasExampleLabel">Product information</h5>
+          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <div>
+           
+          </div>
+        </div>
+      </div>
+            
+
+
+</body>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+    <script src="index.js"> </script>
+
+    <script src="script.js"></script>
+
+ 
+
+</html>
