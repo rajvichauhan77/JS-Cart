@@ -108,7 +108,7 @@ function addCart(id){
 
 }
 
-document.getElementById("cartlength").innerHTML = cartData.length;
+     document.getElementById("cartlength").innerHTML = cartData.length;
 
 function removeItem(id){
 
