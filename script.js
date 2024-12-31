@@ -108,6 +108,7 @@ function addCart(id){
 
 }
 
+
      document.getElementById("cartlength").innerHTML = cartData.length;
 
 function removeItem(id){
@@ -143,16 +144,26 @@ function decCount(id){
             if(ele.quantity > 1){
                 ele.quantity -= 1
             }
+            else{
+                return ele = null
+            }
         }
         return ele
-    })
+    }).filter((ele) => ele != null)
 
 
     setCart(cartData)
     showCart(cartData)
 }
 
+function checkCart(id){
 
+    let cartData = JSON.parse(localStorage.getItem("cartData")) || []
+
+    cartData = cartData.filter((ele) => ele.id == id)
+
+    return !cartData[0]
+}
 
 
 function eachdata(id){
@@ -161,9 +172,6 @@ let eachdata = data.filter((ele) => ele.id == id )
 console.log(eachdata)
 showeachdata(eachdata)
 }
-
-
-
 
 function showeachdata(eachdata){
 
@@ -211,12 +219,30 @@ boxes.innerHTML += `
                 <h5 class="card-title">${ele.title}</h5>
                 <p class="card-text">${ele.category}</p>
                 <p class="card-text fs-4 fw-bolder text-dark">$${ele.price}</p>
-                 <a onclick="eachdata(${ele.id})" class="btn btn-secondary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample"> More
+                 <a onclick="eachdata(${ele.id})" class="btn btn-secondary " data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample"> More
                 </a>
+
+                 
                
-                <button onclick="addCart(${ele.id})" class="btn btn-primary ms-5">
-                    Add to cart
-                </button>
+                ${
+                    !checkCart(ele.id)
+                    ?
+                    `
+                        <button onclick="incCount(${ele.id})" class="btn btn-outline-danger btn-sm ms-4">+</button>
+                        <button class="btn-outline-primary text-dark btn-sm">${ele.quantity}</button>
+                        <button onclick="decCount(${ele.id})" class="btn btn-outline-danger btn-sm">−</button>
+                    
+                    `
+                    :
+                    `
+                        <button onclick="addCart(${ele.id})" class="btn btn-primary  ms-5">
+                        Add to cart
+                        </button>
+
+                    `
+                }
+
+                
 
                 </div>
             </div>
@@ -224,9 +250,6 @@ boxes.innerHTML += `
     </div>
 
     `
-        
-
-
 })
 }
 

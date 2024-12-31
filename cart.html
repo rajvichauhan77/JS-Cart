@@ -27,7 +27,7 @@
                 <form class="d-flex ms-5 text-end">
                   <input class="form-control ms-5  " type="search" id="search" placeholder="Search" aria-label="Search">
     
-                  <a href="cart.html" class="h2 mx-3 text-decoration-none" > 🛒 </a>
+                  <a onclick="showCart()" id="cartlength" class="h2 mx-3 text-decoration-none" > 🛒 </a>
                   
                 
                 </form>
@@ -35,29 +35,35 @@
             </div>
           </nav>
 
-    <div class="container">
 
+    <div class="container">
        
         <div class="mt-3 text-center fw-bolder h1">Your cart🛒</div>
 
-        <table class="table mt-5  table-striped table-hover">
-            <thead >
-                <tr>
-                    <th>Image</th>
-                    <th>Title</th>
-                    <th>Price</th>
-                    <th>Rating</th>
-                    <th>Quantity</th>
-                    <th>Remove</th>
-                </tr>
-              
-            </thead>
-            
-            <tbody class="tbody">
-    
-            </tbody>
+        <div class="table-responsive table-responsive-xl table-responsive-lg table-responsive-md table-responsive-sm">
 
-        </table>
+            <table class="table  mt-5  table-striped table-hover">
+                <thead >
+                    <tr>
+                        <th>Image</th>
+                        <th>Title</th>
+                        <th>Price</th>
+                        <th>Rating</th>
+                        <th>Quantity</th>
+                        <th>Remove</th>
+                    </tr>
+                  
+                </thead>
+                
+                <tbody class="tbody">
+        
+                </tbody>
+    
+            </table>
+
+        </div>
+
+      
 
 
         <table class="my-5 ">
@@ -83,13 +89,13 @@
 
     <script>
     
-    window.onload = showCart(cartData)
+    window.onload = showCart()
 
     window.onload = totalCart(cartData)
+    window.onload = checkCart()
 
-
-function showCart(cartData){
-       
+function showCart(){
+       let cartData = JSON.parse(localStorage.getItem("cartData"))
     let tbody = document.querySelector(".tbody")
  
     tbody.innerHTML = ""
@@ -105,6 +111,7 @@ function showCart(cartData){
                 <td ><button onclick="incCount(${ele.id})" class="btn btn-outline-danger btn-sm">+</button>
                 <button class="btn-outline-primary text-dark btn-sm">${ele.quantity}</button>
                <button onclick="decCount(${ele.id})" class="btn btn-outline-danger btn-sm">−</button></td>
+
                <td><button onclick="removeItem(${ele.id})" class="btn  btn-sm ">❌</button></td>
             </tr>
         `
