@@ -102,7 +102,7 @@ function addCart(id){
     // showCart()
 
      setCart(cartData)
-
+        showData(data)
      document.getElementById("cartlength").innerHTML = cartData.length
 
 
@@ -134,6 +134,7 @@ function incCount(id){
 
 
 setCart(cartData)
+showData(data)
     showCart(cartData)
 }
 
@@ -153,8 +154,11 @@ function decCount(id){
 
 
     setCart(cartData)
+    showData(data)
     showCart(cartData)
 }
+
+
 
 function checkCart(id){
 
@@ -163,6 +167,14 @@ function checkCart(id){
     cartData = cartData.filter((ele) => ele.id == id)
 
     return !cartData[0]
+}
+
+
+function checkQuantity(id){
+   
+  let  cart =  cartData.filter((ele) => ele.id == id)
+    return cart[0].quantity
+   
 }
 
 
@@ -211,11 +223,11 @@ boxes.innerHTML = "";
 
 boxes.innerHTML += `
 
-    <div class="col">
-        <div class="box">
-            <div class="card" style="width: 18rem; Height: 550px;">
-                <img src="${ele.image}" Height="300px" class="card-img-top" alt="...">
-                <div class="card-body">
+    <div class="col "  >
+        <div class="box h-100 w-100" >
+            <div class="card h-100 w-100" >
+                <img src="${ele.image}" height="300px" class="card-img-top" alt="...">
+                <div class="card-body" >
                 <h5 class="card-title">${ele.title}</h5>
                 <p class="card-text">${ele.category}</p>
                 
@@ -234,7 +246,7 @@ boxes.innerHTML += `
                     ?
                     `
                         <button onclick="incCount(${ele.id})" class="btn btn-outline-danger btn-sm ms-4">+</button>
-                        <button class="btn-outline-primary text-dark btn-sm">${ele.quantity}</button>
+                        <button class="btn-outline-primary text-dark btn-sm">${checkQuantity(ele.id)}</button>
                         <button onclick="decCount(${ele.id})" class="btn btn-outline-danger btn-sm">−</button>
                     
                     `
@@ -260,4 +272,89 @@ boxes.innerHTML += `
 
 
 
+
+
+
+
+function myPlugin({ swiper, extendParams, on }) {
+    extendParams({
+      debugger: false,
+    });
+
+    on('init', () => {
+      if (!swiper.params.debugger) return;
+      console.log('init');
+    });
+    on('click', (swiper, e) => {
+      if (!swiper.params.debugger) return;
+      console.log('click');
+    });
+    on('tap', (swiper, e) => {
+      if (!swiper.params.debugger) return;
+      console.log('tap');
+    });
+    on('doubleTap', (swiper, e) => {
+      if (!swiper.params.debugger) return;
+      console.log('doubleTap');
+    });
+    on('sliderMove', (swiper, e) => {
+      if (!swiper.params.debugger) return;
+      console.log('sliderMove');
+    });
+    on('slideChange', () => {
+      if (!swiper.params.debugger) return;
+      console.log(
+        'slideChange',
+        swiper.previousIndex,
+        '->',
+        swiper.activeIndex
+      );
+    });
+    on('slideChangeTransitionStart', () => {
+      if (!swiper.params.debugger) return;
+      console.log('slideChangeTransitionStart');
+    });
+    on('slideChangeTransitionEnd', () => {
+      if (!swiper.params.debugger) return;
+      console.log('slideChangeTransitionEnd');
+    });
+    on('transitionStart', () => {
+      if (!swiper.params.debugger) return;
+      console.log('transitionStart');
+    });
+    on('transitionEnd', () => {
+      if (!swiper.params.debugger) return;
+      console.log('transitionEnd');
+    });
+    on('fromEdge', () => {
+      if (!swiper.params.debugger) return;
+      console.log('fromEdge');
+    });
+    on('reachBeginning', () => {
+      if (!swiper.params.debugger) return;
+      console.log('reachBeginning');
+    });
+    on('reachEnd', () => {
+      if (!swiper.params.debugger) return;
+      console.log('reachEnd');
+    });
+  }
+
+
+
+  // Init Swiper
+  var swiper = new Swiper('.swiper', {
+    // Install Plugin To Swiper
+    modules: [myPlugin],
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    // Enable debugger
+    debugger: true,
+  });
 
