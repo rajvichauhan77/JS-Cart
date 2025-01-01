@@ -48,7 +48,6 @@
                         <th>Image</th>
                         <th>Title</th>
                         <th>Price</th>
-                        <th>Rating</th>
                         <th>Quantity</th>
                         <th>Remove</th>
                     </tr>
@@ -106,7 +105,6 @@ function showCart(){
                 <td><img class="shadoe border   border-2 rounded-3 p-1" width ="100px" height="100px" src=${ele.image}  /></td>
                 <td class="fst-normal">${ele.title}</td>
                 <td class="ptotal  fw-bolder">${ele.price*ele.quantity}</td> 
-                <td >${ele.rating.rate}⭐</td> 
                  
                 <td ><button onclick="incCount(${ele.id})" class="btn btn-outline-danger btn-sm">+</button>
                 <button class="btn-outline-primary text-dark btn-sm">${ele.quantity}</button>
