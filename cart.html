@@ -123,11 +123,13 @@ function showCart(){
  function totalCart(cartData){
 
      let total = document.querySelector(".total")
-    let sum = 0
+     let sum = 0
 
     let ptotal = document.querySelectorAll(".ptotal")
     ptotal.forEach((ele) => {
         sum += +ele.innerText
+
+       
     })
 
 
