@@ -218,7 +218,12 @@ boxes.innerHTML += `
                 <div class="card-body">
                 <h5 class="card-title">${ele.title}</h5>
                 <p class="card-text">${ele.category}</p>
-                <p class="card-text fs-4 fw-bolder text-dark">$${ele.price}</p>
+                
+                <p class="card-text fs-4 fw-bolder text-dark">$${ele.price}
+                    <span class="ms-5 text-normal">${ele.rating.rate}⭐</span>
+                </p>
+                
+        
                  <a onclick="eachdata(${ele.id})" class="btn btn-secondary " data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample"> More
                 </a>
 
