@@ -236,8 +236,7 @@ boxes.innerHTML += `
                 </p>
                 
         
-                 <a onclick="eachdata(${ele.id})" class="btn btn-secondary " data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample"> More
-                </a>
+              
 
                  
                
@@ -252,9 +251,21 @@ boxes.innerHTML += `
                     `
                     :
                     `
-                        <button onclick="addCart(${ele.id})" class="btn btn-primary  ms-5">
-                        Add to cart
-                        </button>
+                    <div class="row row-cols-lg-2 row-cols-md-2 row-cols-sm-1 row-cols-1 g-2">
+                        <div class="col">
+                          <button onclick="addCart(${ele.id})" class="btn btn-primary w-100 ">
+                          Add to cart
+                          </button>
+                        </div>
+
+                        <div class="col">
+                            <a onclick="eachdata(${ele.id})" class="btn btn-secondary w-100" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample"> More
+                            </a>
+                        </div>
+                    </div>
+                        
+
+                           
 
                     `
                 }
