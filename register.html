@@ -67,23 +67,84 @@
             password : document.getElementById("password").value
         }
 
+        registration = JSON.parse(localStorage.getItem("registration"))
+
+        let log = registration.filter((ele) => {
+            if(ele.mail == obj.mail && ele.password == obj.password){
+                return ele
+            
+             }
+        })
+
+            if(log[0]){
+                alert("user already exist")
+                // console.log(log[0])
+                
+             }
 
 
-        if(obj.name !="" && obj.mail !="" && obj.password !=""){
-            registration.push(obj)
-            localStorage.setItem("registration",JSON.stringify(registration))
-            location.href="index.html";
-        }
+            else if(obj.name !="" && obj.mail !="" && obj.phone !="" && obj.password !=""){
+                registration.push(obj)
+                localStorage.setItem("registration",JSON.stringify(registration))
+                location.href="index.html"
+            }
+
+       
         else{
-            alert("Fill the details")
+            alert("Plese register first")
         }
 
-       // console.log(obj)
+       console.log(obj)
 
        
     })
 
 
+
+
+
+
+
+    // login start...
+
+    // document.getElementById("login").addEventListener("submit",function(ele){
+    //     ele.preventDefault()
+
+    //     let objlog = {
+    //         email : document.querySelector("email1").value,
+    //         password: document.querySelector("#password1").value
+    //     }
+
+    //     if(objlog.mail !="" && objlog.password !=""){
+    //         registration = JSON.parse(localStorage.getItem("registration"))
+
+    //             let log = registration.filter((ele) => {
+    //                 if(ele.mail == objlog.mail && ele.password == objlog.password){
+    //                     return ele
+    //                 }
+    //             })
+
+                
+    //         if(log[0]){
+    //             let curUser = log[0];
+    //             localStorage.setItem("curUser", JSON.stringify(curUser));
+    //             location.href="index.html"
+    //         }
+    //         else{
+    //             alert("user not register")
+    //         }
+
+    //     }
+    //         else{
+    //          alert("Please Login first")
+    //         }
+
+    // })
+
+
+
+
+    // login end...
 
 </script>
 

@@ -23,7 +23,7 @@
 
                         <div  class="mb-3 fw-bold fs-4">
                           <label for="exampleInputPassword1" class="form-label">Password</label>
-                          <input type="password" class="form-control" id="password"placeholder="password1">
+                          <input type="password" class="form-control" id="password1" placeholder="password">
                         </div>
 
                       
@@ -45,10 +45,11 @@
     document.getElementById("login").addEventListener("submit",function(ele){
         ele.preventDefault()
 
-        let onjlog = {
-            email : document.querySelector("email1").value,
+        let objlog = {
+            mail : document.querySelector("#mail1").value,
             password: document.querySelector("#password1").value
         }
+        console.log(objlog)
 
         if(objlog.mail !="" && objlog.password !=""){
             registration = JSON.parse(localStorage.getItem("registration"))
@@ -60,7 +61,23 @@
                 })
 
                 
+        if(log[0]){
+                let curUser = log[0];
+                localStorage.setItem("curUser", JSON.stringify(curUser));
+                location.href="index.html"
+
+                console.log(curUser)
+            }
+            else{
+                alert("user not register")
+            }
+
         }
+            else{
+             alert("Please Login first")
+            }
+
+            console.log(log)
     })
 
 </script>
