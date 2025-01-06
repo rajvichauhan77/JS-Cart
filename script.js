@@ -82,30 +82,40 @@ function setCart(cd){
 }
 function addCart(id){
     
-
-    console.log(id)
+  if(activeUser){
 
     let newcartData = data.filter((ele) => ele.id == id ).map((ele) =>{
-        if(ele.id == id){
-            ele.quantity = 1
-        }
-        return ele
-    })
-    
-    console.log(newcartData)
-
-
-    cartData = [...cartData, ...newcartData]
+      if(ele.id == id){
+          ele.quantity = 1
+      }
+      return ele
+  })
   
+  console.log(newcartData)
+
+
+  cartData = [...cartData, ...newcartData]
+
+ 
+  // console.log(cartData)
+  // showCart()
+
+   setCart(cartData)
+      showData(data)
+   document.getElementById("cartlength").innerHTML = cartData.length
+   showData(data)
+
+
+  }
+  else{
+
+    location.href = "register.html"
+
+  }
+
+    // console.log(id)
+
    
-    // console.log(cartData)
-    // showCart()
-
-     setCart(cartData)
-        showData(data)
-     document.getElementById("cartlength").innerHTML = cartData.length
-
-
 }
 
 

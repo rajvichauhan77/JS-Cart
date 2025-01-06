@@ -299,9 +299,23 @@
                 <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
               </li> --> 
               
-              <a href="register.html"><button class="btn btn-outline-secondary ms-2">Register</button></a>
+
+
+              <!-- <a href="register.html"><button class="btn btn-outline-secondary ms-2">Register</button></a>
             
-             <a href="login.html"><button class="btn btn-outline-secondary ms-2">login</button></a>
+             <a href="login.html"><button class="btn btn-outline-secondary ms-2">login</button></a> -->
+
+             
+           
+              <div class="dropdown ms-2">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                 👤
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" id="auth">
+                 
+                </ul>
+              </div>
+              
 
             </ul>
             <form class="d-flex ">
@@ -453,5 +467,49 @@
     <script src="script.js"></script>
 
  
+  
+<script>
+
+  let activeUser = JSON.parse(localStorage.getItem("activeUser"))
+
+  let auth = document.getElementById("auth")
+
+  auth.innerHTML = `
+
+
+  
+          ${
+              activeUser
+              ?
+              `
+              <li><a class="dropdown-item" href="#">Name : ${activeUser.name}</a></li>
+              <li><a class="dropdown-item" href="#">Email : ${activeUser.mail}</a></li>
+              <li><a class="dropdown-item" href="#">Phone no : ${activeUser.phone}</a></li>
+
+              <button onclick="logOut()" class="btn btn-outline-danger ms-3">Log Out</button>
+
+                      
+              `
+              :
+
+              `
+               <a href="login.html"><button class="btn btn-outline-secondary ms-2 ">login</button></a>
+
+                <a href="register.html"><button class="btn btn-outline-secondary ms-2">Register</button></a>
+            
+              
+              `
+                  }
+
+  `
+
+
+
+  function logOut(){
+      localStorage.removeItem("activeUser")
+      location.reload()
+  }
+
+</script>
 
 </html>
