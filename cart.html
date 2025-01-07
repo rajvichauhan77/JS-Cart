@@ -127,15 +127,17 @@ function showCart(){
     cartData.map((ele) => {
         tbody.innerHTML +=  `
             <tr >
-                <td><img class="shadow border border-2 rounded-3 " width ="75px" height="75px" src=${ele.image}  /></td>
+                <td><img class="shadow border border-2 rounded-3 " width ="50px" height="50px" src=${ele.image}  /></td>
                 <td class="fst-normal">${ele.title}</td>
                 <td class="ptotal  fw-bolder">${ele.price*ele.quantity}</td> 
                  
-                <td ><button onclick="incCount(${ele.id})" class="btn btn-outline-danger btn-sm">+</button>
+                <td>
+                  <button onclick="incCount(${ele.id})" class="btn btn-outline-danger btn-sm">+</button>
                 <button class="btn-outline-primary text-dark btn-sm">${ele.quantity}</button>
                <button onclick="decCount(${ele.id})" class="btn btn-outline-danger btn-sm">−</button></td>
 
-               <td><button onclick="removeItem(${ele.id})" class="btn  btn-sm ">❌</button></td>
+               <td><button onclick="removeItem(${ele.id})" class="btn  btn-sm ">❌</button>
+                </td>
             </tr>
         `
       
