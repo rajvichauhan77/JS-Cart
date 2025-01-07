@@ -236,12 +236,12 @@ boxes.innerHTML += `
     <div class="col "  >
         <div class="box h-100 w-100" >
             <div class="card h-100 w-100" >
-                <img src="${ele.image}" height="300px" class="card-img-top" alt="...">
+                <img src="${ele.image}" height="300px";  class="card-img-top w-100 p-3" alt="...">
                 <div class="card-body" >
                 <h5 class="card-title">${ele.title}</h5>
                 <p class="card-text">${ele.category}</p>
                 
-                <p class="card-text fs-4 fw-bolder text-dark">$${ele.price}
+                <p class="card-text h5 fw-bolder text-dark">$${ele.price}
                     <span class="ms-5 text-normal">${ele.rating.rate}⭐</span>
                 </p>
                 

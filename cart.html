@@ -156,7 +156,10 @@ function showCart(){
     ptotal.forEach((ele) => {
         sum += +ele.innerText
 
-       
+        // let discount = 10
+        // let afterdiscount = sum - (sum * discount / 100)
+        // console.log("After discount your bill is :" + afterdiscount)
+
     })
 
 
@@ -169,6 +172,7 @@ function showCart(){
         <tr >
             <td class="h4 ">Total ammount : ${sum}</td>
         </tr>
+       
     `
 
 } 
